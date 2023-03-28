@@ -11,7 +11,10 @@ trait SecondDegreePolynomial:
 
 
 object SecondDegreePolynomial:
-  def apply(secondDegree: Double, firstDegree: Double, constant: Double): SecondDegreePolynomial = ??? // Fill here
+  def apply(secondDegree: Double, firstDegree: Double, constant: Double): SecondDegreePolynomial =
+    SecondDegreePolynomialImpl(secondDegree, firstDegree, constant)// Fill here
+
+case class CaseSecondDegreePolynomial(secondDegree: Double, firstDegree: Double, constant: Double)
 
 @main def checkComplex(): Unit =
   val simplePolynomial = SecondDegreePolynomial(1.0, 0, 3)
@@ -22,6 +25,13 @@ object SecondDegreePolynomial:
   val multipleOperations = fullPolynomial - (anotherPolynomial + simplePolynomial)
   println((multipleOperations, multipleOperations.secondDegree, multipleOperations.firstDegree, multipleOperations.constant)) // 2.0 * X^2 + 1.0 * X + 2.0
 
+  println(sum.toString)
+  println(sum.equals(simplePolynomial + anotherPolynomial))
+
+  val case1 = CaseSecondDegreePolynomial(3.0, 2.0, 5.0)
+  val case2 = CaseSecondDegreePolynomial(3.0, 2.0, 5.0)
+  println(case1.toString)
+  println(case1.equals(case2))
 /** Hints:
   *   - implement SecondDegreePolynomial with a SecondDegreePolynomialImpl class, similar to PersonImpl in slides
   *   - check that equality and toString do not work
